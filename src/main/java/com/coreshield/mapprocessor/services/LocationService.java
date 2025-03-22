@@ -7,17 +7,21 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Service interface for handling location data processing.
+ */
+
 public interface LocationService {
 
-    void loadJsonData() throws IOException;
+    void loadJsonData() throws IOException; // Loads the JSON Data from the file provided in the resources folder
 
-    void mergeData();
+    void mergeData(); // Merges the location and metadata into one
 
-    Map<String,Long> countByType();
+    Map<String,Long> countByType(); // Calculate valid locations per type
 
-    Map<String,Double> averageRatingType();
+    Map<String,Double> averageRatingType(); // Calculate average rating per type
 
-    MergedLocation highestReviewedLocation();
+    MergedLocation highestReviewedLocation(); // Find the location with the highest reviews
 
-    List<Location> incompleteData();
+    List<Location> incompleteData(); // Identify locations with incomplete data
 }
